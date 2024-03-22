@@ -1,0 +1,44 @@
+<div class="container">
+  <header class="mb-4">
+    <h1 class="text-primary">Crie sua transação</h1>
+    <p class="lead">Despesa ou receita</p>
+  </header>
+  <form [formGroup]="transactionsForm" class="custom-form-control">
+    <fieldset class="border p-4 rounded shadow-lg">
+      <legend class="text-primary mb-4">Transação</legend>
+
+      <div class="mb-3">
+        <label for="transactionDescription" class="form-label">Descrição</label>
+        <input type="text" formControlName="transactionDescription" id="transactionDescription" class="form-control" placeholder="Digite a descrição da transação" />
+      </div>
+
+      <div class="mb-3">
+        <label for="category" class="form-label">Categoria</label>
+        <select  id="category" formControlName="category" class="form-select">
+          <option *ngFor="let category of categories; let i = index" [value]="category.id">{{ category.description }}</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="expenseType" class="form-label">Tipo de despesa</label>
+        <select id="expenseType" formControlName="expenseType" class="form-select" [(ngModel)]="transactionsForm.value.expenseType">
+          <option *ngFor="let entry of expenseTypes" [value]="entry.value">{{ entry.label }}</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="amount" class="form-label">Valor</label>
+        <input currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" id="amount" formControlName="amount" class="form-control" placeholder="Digite o valor da transação" />
+      </div>
+
+      <div class="mb-3">
+        <label for="comments" class="form-label">Comentários</label>
+        <input type="text" id="comments" formControlName="comments" class="form-control" placeholder="Adicione comentários (opcional)" />
+      </div>
+    </fieldset>
+  </form>
+
+  <footer>
+    <button class="btn btn-primary" form="my-form" [disabled]="!transactionsForm.valid" (click)="createTransaction()">Salvar transação</button>
+  </footer>
+</div>

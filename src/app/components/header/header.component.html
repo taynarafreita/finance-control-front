@@ -1,0 +1,17 @@
+<mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" >
+  <span fxFlex>Finance Control</span>
+  <div style="cursor: pointer;">
+      <button mat-mini-fab [matMenuTriggerFor]="menu">
+          <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="/">
+              <span>Transações</span>
+          </button>
+          <button mat-menu-item routerLink="/clients">
+              <span>Saldo</span>
+          </button>
+      </mat-menu>
+  </div>
+</mat-toolbar>
+
