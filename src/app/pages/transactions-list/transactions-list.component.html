@@ -13,6 +13,11 @@
       </tr>
     </thead>
     <tbody>
+      <tr *ngIf="transactions.length == 0">
+        <td class="text-center" colspan="7">
+            Não há transações para serem visualizadas.
+        </td>
+    </tr>
       <tr *ngFor="let transaction of transactions">
         <td scope="row">{{ transaction.transactionDescription }}</td>
         <td>{{ transaction.category.description }}</td>
