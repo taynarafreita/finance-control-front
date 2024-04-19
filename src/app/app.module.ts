@@ -17,6 +17,7 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { NgxCurrencyDirective } from 'ngx-currency';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
+import { TransactionsListComponent } from './pages/transactions-list/transactions-list.component';
 
 
 
@@ -26,7 +27,8 @@ import { MatButtonModule } from '@angular/material/button';
     AppComponent,
     TransactionsComponent,
     HeaderComponent,
-    LoaderComponent
+    LoaderComponent,
+    TransactionsListComponent
   ],
   imports: [
     BrowserModule,

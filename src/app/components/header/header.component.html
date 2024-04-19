@@ -5,12 +5,15 @@
           <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="/transactions">
+              <span>Criar Transação</span>
+          </button>
           <button mat-menu-item routerLink="/">
-              <span>Transações</span>
+              <span>Todas Transações</span>
           </button>
-          <button mat-menu-item routerLink="/clients">
-              <span>Saldo</span>
-          </button>
+          <button mat-menu-item routerLink="/account">
+            <span>Saldo</span>
+        </button>
       </mat-menu>
   </div>
 </mat-toolbar>

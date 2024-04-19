@@ -29,7 +29,6 @@ export class TransactionsComponent implements OnInit {
   ngOnInit(): void {
     this.buildForm();
     this.getCategories();
-    console.log(this.categories)
   }
 
   buildForm() {
@@ -91,15 +90,4 @@ export class TransactionsComponent implements OnInit {
     );
   }
 
-  getExpenseTypeDescription(expense: ExpenseTypeEnum): string {
-    return expenseTypeGetDescription(expense);
-  }
-
-  getCategoryIdByDescription(description: string): number {
-    console.log({description})
-    const category = this.categories.find(cat => cat.description === description) as CategoryDtoResponse;
-    console.log({category})
-    console.log(category.id)
-    return category.id;
-  }
 }

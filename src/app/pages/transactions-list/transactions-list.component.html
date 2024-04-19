@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Lista de Transações</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr class="table-dark">
+        <th scope="col">Descrição da Transação</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Data de Criação</th>
+        <th scope="col">Data de Vencimento</th>
+        <th scope="col">Comentários</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactions">
+        <td scope="row">{{ transaction.transactionDescription }}</td>
+        <td>{{ transaction.category.description }}</td>
+        <td>{{ expenseTypeGetDescription(transaction.expenseType) }}</td>
+        <td>{{ formatCurrency(transaction.amount) }}</td>
+        <td>{{ transaction.createdAt | date: 'dd/MM/yyyy - HH:mm:ss' }}</td>
+        <td>{{ transaction.dueDate | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ transaction.comments }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

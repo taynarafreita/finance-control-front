@@ -18,4 +18,8 @@ export class TransactionsService {
   createTransaction(request: TransactionDtoRequest): Observable<TransactionDtoResponse> {
     return this.httpClient.post<TransactionDtoResponse>(`${this.API_URL}/transactions/create`, request, this.httpOptions);
   }
+
+  getTransactions() {
+    return this.httpClient.get<TransactionDtoResponse[]>(`${this.API_URL}/transactions`)
+  }
 }
