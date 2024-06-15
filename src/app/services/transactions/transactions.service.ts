@@ -4,6 +4,7 @@ import { TransactionDtoRequest } from '../../core/dtos/requests/transaction-dto.
 import { Observable, map } from 'rxjs';
 import { TransactionDtoResponse } from '../../core/dtos/responses/transaction-dto.response';
 import { environment } from '../../../environments/environment';
+import { UUID } from 'node:crypto';
 
 @Injectable({
   providedIn: 'root'
@@ -22,4 +23,14 @@ export class TransactionsService {
   getTransactions() {
     return this.httpClient.get<TransactionDtoResponse[]>(`${this.API_URL}/transactions`)
   }
+
+  updateTransaction(request: TransactionDtoRequest, transactionId: UUID): Observable<TransactionDtoResponse> {
+    return this.httpClient.put<TransactionDtoResponse>(`${this.API_URL}/transactions/update/${transactionId}`,
+    request, this.httpOptions);
+  }
+
+  deleteTransaction(transactionId: UUID): Observable<void> {
+    return this.httpClient.delete<void>(`${this.API_URL}/transactions/delete/${transactionId}`, this.httpOptions);
+  }
+
 }

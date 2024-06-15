@@ -4,7 +4,7 @@ import { UserDtoResponse } from "./user-dto.response";
 import { CategoryDtoResponse } from "./category-dto.response";
 
 export interface TransactionDtoResponse {
-  id?: UUID;
+  id: UUID;
   user?: UserDtoResponse;
   transactionDescription: string;
   category: CategoryDtoResponse;

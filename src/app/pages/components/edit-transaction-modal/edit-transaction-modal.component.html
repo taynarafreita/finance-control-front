@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>{{ data?.id ? 'Editar Transação' : 'Criar Transação' }}</h1>
+
+<div mat-dialog-content>
+  <app-transactions [transactionData]="data" (transactionSaved)="onTransactionSaved()"></app-transactions>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+</div>

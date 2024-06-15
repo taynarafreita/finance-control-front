@@ -1,11 +1,9 @@
 <div class="container">
-  <header class="mb-4">
-    <h1 class="text-primary">Crie sua transação</h1>
-    <p class="lead">Despesa ou receita</p>
-  </header>
+  <ng-container *ngIf="!transactionData">
+    <h2>Criar Transação</h2>
+  </ng-container>
   <form [formGroup]="transactionsForm" class="custom-form-control">
     <fieldset class="border p-4 rounded shadow-lg">
-      <legend class="text-primary mb-4">Transação</legend>
 
       <div class="mb-3">
         <label for="transactionDescription" class="form-label">Descrição</label>
@@ -39,6 +37,6 @@
   </form>
 
   <footer>
-    <button class="btn btn-primary" form="my-form" [disabled]="!transactionsForm.valid" (click)="createTransaction()">Salvar transação</button>
+    <button class="btn btn-primary" form="my-form" [disabled]="!transactionsForm.valid" (click)="saveTransaction()">Salvar transação</button>
   </footer>
 </div>

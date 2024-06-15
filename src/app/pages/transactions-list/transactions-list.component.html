@@ -10,14 +10,15 @@
         <th scope="col">Data de Criação</th>
         <th scope="col">Data de Vencimento</th>
         <th scope="col">Comentários</th>
+        <th scope="col">Ações</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngIf="transactions.length == 0">
         <td class="text-center" colspan="7">
-            Não há transações para serem visualizadas.
+          Não há transações para serem visualizadas.
         </td>
-    </tr>
+      </tr>
       <tr *ngFor="let transaction of transactions">
         <td scope="row">{{ transaction.transactionDescription }}</td>
         <td>{{ transaction.category.description }}</td>
@@ -26,6 +27,14 @@
         <td>{{ transaction.createdAt | date: 'dd/MM/yyyy - HH:mm:ss' }}</td>
         <td>{{ transaction.dueDate | date: 'dd/MM/yyyy' }}</td>
         <td>{{ transaction.comments }}</td>
+        <td>
+          <button class="btn btn-sm" matTooltip="Editar" (click)="editTransaction(transaction)">
+            <mat-icon>edit_document</mat-icon>
+          </button>
+          <button class="btn btn-sm" matTooltip="Excluir" (click)="deleteTransaction(transaction.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
